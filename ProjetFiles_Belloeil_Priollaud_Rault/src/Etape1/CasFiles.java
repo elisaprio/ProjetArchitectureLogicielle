@@ -14,7 +14,7 @@ public class CasFiles<T> implements Files<T>{
 	}
 	
 	public boolean isEmpty(){
-		return true;
+		return this.file.isEmpty();
 	}
 	
 	public T dernierElement(){
