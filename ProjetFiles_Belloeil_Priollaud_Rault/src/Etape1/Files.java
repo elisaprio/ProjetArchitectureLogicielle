@@ -1,16 +1,12 @@
 package Etape1;
 
-public interface Files {
+public interface Files<T> {
 
-	boolean isEmpty();
+	default boolean isEmpty(){
+		return false;
+	};
 	
-	void empiler();
-	
-	void depiler();
-	
-    void aupif();
-    
-    void testvincent();
-    
-    void testElisa();
+	default T dernierElement(){
+		return null;
+	}
 }
