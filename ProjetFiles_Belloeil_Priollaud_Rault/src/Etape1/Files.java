@@ -4,7 +4,7 @@ public interface Files<T> {
 	
 	// methode testant si la file est vide et qui par defaut renvoie False
 
-	default boolean isEmpty(){
+	default boolean estVide(){
 		return true;
 	};
 	

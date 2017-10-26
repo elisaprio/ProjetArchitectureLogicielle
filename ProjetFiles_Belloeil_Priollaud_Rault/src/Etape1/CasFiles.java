@@ -19,7 +19,7 @@ public class CasFiles<T> implements Files<T>, ServiceEmpilageDepilage<T>{
 	
 	// Méthode retournant True si la liste est vide, False sinon
 	
-	public boolean isEmpty(){
+	public boolean estVide(){
 		return this.file.isEmpty();
 	}
 	
