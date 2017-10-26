@@ -2,7 +2,7 @@ package Etape1;
 
 import java.util.LinkedList;
 
-public class CasFiles<T> implements Files<T>{
+public class CasFiles<T> implements Files<T>, ServiceEmpilageDepilage<T>{
 	private LinkedList<T> file = new LinkedList<T>();
 	
 	// Constructeur creant une liste vide
@@ -27,6 +27,22 @@ public class CasFiles<T> implements Files<T>{
 	
 	public T dernierElement(){
 		return this.file.getLast();
+	}
+
+	//Méthode ajoutant un élément t en queue de file
+	
+	@Override
+	public void empiler(T t) {
+		this.file.add(t);
+		
+	}
+
+	//Méthode etirant le premier élément de la liste et retourant cet élément
+	
+	@Override
+	public T depiler() {
+		this.file.removeFirst();
+		return this.file.getFirst();
 	}
 }
 
