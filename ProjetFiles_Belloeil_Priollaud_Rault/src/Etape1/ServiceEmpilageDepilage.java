@@ -1,10 +1,23 @@
 package Etape1;
 
+/**
+ * The Interface ServiceEmpilageDepilage.
+ *
+ * @param <T> the generic type
+ */
 public interface ServiceEmpilageDepilage<T> {
 	
-	// Ajoute un élément T  en queue de file
+	/**
+	 * Empiler.
+	 *
+	 * @param t the t
+	 */
 	void empiler(T t);
 	
-	// Retire le premier élément de la liste
+	/**
+	 * Depiler.
+	 *
+	 * @return the t
+	 */
 	T depiler();
 }

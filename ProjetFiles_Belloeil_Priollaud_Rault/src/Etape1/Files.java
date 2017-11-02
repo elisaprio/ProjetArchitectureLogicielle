@@ -1,15 +1,26 @@
 package Etape1;
 
+/**
+ * The Interface Files.
+ *
+ * @param <T> the generic type
+ */
 public interface Files<T> {
 	
-	// methode testant si la file est vide et qui par defaut renvoie False
-
+	/**
+	 * Est vide.
+	 *
+	 * @return true, if successful
+	 */
 	default boolean estVide(){
 		return true;
 	};
 	
-	// methode retournant le dernier élément de la liste et qui par defaut renvoie null
-	
+	/**
+	 * Dernier element.
+	 *
+	 * @return the t
+	 */
 	default T dernierElement(){
 		return null;
 	}
