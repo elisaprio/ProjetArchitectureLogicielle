@@ -24,5 +24,14 @@ public interface Files<T> {
 	default T dernierElement(){
 		return null;
 	}
+	
+	/**
+	 * Premier element.
+	 *
+	 * @return the t
+	 */
+	default T premierElement(){
+		return null;
+	}
 
 }

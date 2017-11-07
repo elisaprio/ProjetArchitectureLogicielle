@@ -36,6 +36,10 @@ public class CasFiles<T> implements Files<T>, ServiceEmpilageDepilage<T>{
 	public T dernierElement(){
 		return this.file.getLast();
 	}
+	
+	public T premierElement(){
+		return this.file.getFirst();
+	}
 
 	@Override
 	public void empiler(T t) {
