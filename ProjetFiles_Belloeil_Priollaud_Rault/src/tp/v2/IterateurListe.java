@@ -4,10 +4,10 @@ import java.util.Iterator;
 
 public class IterateurListe<E> implements Iterator<E> {
 
-	private Liste liste;
+	private Liste<E> liste;
 	private int index;
 	
-	public IterateurListe(Liste liste){
+	public IterateurListe(Liste<E> liste){
 		this.liste=liste;
 		this.index=0;
 	}
@@ -27,6 +27,10 @@ public class IterateurListe<E> implements Iterator<E> {
 	public E next() {
 		// TODO Auto-generated method stub
 		if(this.hasNext()){
+			Liste<E> copie = this.liste;
+			for(int i = 0; i<index; i++){
+				
+			}
 			index++;
 		}
 		return null;
