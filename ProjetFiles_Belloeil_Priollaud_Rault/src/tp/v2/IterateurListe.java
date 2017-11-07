@@ -4,6 +4,12 @@ import java.util.Iterator;
 
 public class IterateurListe<E> implements Iterator<E> {
 
+	private Liste liste;
+	
+	public IterateurListe(Liste liste){
+		this.liste=liste;
+	}
+	
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
