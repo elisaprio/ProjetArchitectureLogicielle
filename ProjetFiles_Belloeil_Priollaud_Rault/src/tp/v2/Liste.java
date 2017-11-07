@@ -30,7 +30,7 @@ public interface Liste<E> extends Iterable<E> {
 	 */
 	default Iterator<E> iterator() {
 		// TODO
-		return null; // Compléter puis utiliser IterateurListe.
+		return new IterateurListe(this); // Compléter puis utiliser IterateurListe.
 	}
 	default Liste<E> miroir(){
 		// TODO
