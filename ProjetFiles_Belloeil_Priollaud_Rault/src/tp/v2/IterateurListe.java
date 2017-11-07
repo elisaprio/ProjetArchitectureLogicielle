@@ -9,31 +9,25 @@ public class IterateurListe<E> implements Iterator<E> {
 	
 	public IterateurListe(Liste<E> liste){
 		this.liste=liste;
-		this.index=0;
 	}
 	
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
-		if (this.index<this.liste.taille()){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return this.liste.taille()!=0;
 	}
 
 	@Override
 	public E next() {
 		// TODO Auto-generated method stub
 		if(this.hasNext()){
-			Liste<E> copie = this.liste;
-			for(int i = 0; i<index; i++){
-				
-			}
-			index++;
+			E res=this.liste.tete();
+			this.liste=this.liste.reste();
+			return res;
 		}
-		return null;
+		else{
+			return null;
+		}
 	}
 
 }
