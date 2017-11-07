@@ -1,4 +1,4 @@
-package Etape1;
+package tp.v1;
 
 import java.util.LinkedList;
 
