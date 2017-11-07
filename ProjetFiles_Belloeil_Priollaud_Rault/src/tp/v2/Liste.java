@@ -42,13 +42,28 @@ public interface Liste<E> extends Iterable<E> {
 	
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.			
+			// TODO Définir les méthodes utiles.	
+			public boolean casVide(){
+				return true;
+			}
 		};
 	}
 	
 	public static <E> Liste<E> cons(E t, Liste<E> r) {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.			
+			// TODO Définir les méthodes utiles.
+			public boolean casCons(){
+				return true;
+			}
+			public E tete(){
+				return t;
+			}
+			public Liste<E> reste(){
+				return r;
+			}
+			public int taille(){
+				return 1+r.taille();
+			}
 		};
 	}
 	
