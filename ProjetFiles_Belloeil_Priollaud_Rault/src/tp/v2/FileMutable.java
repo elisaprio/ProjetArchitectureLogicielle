@@ -5,15 +5,9 @@ public interface FileMutable<E> extends File<E> {
 	/*
 	 * Accesseurs
 	 */
-	@Override
-	default FileMutable<E> suivants(){
-		// DONE
-		FileMutable<E> res = this.creerCopie();
-		for(E e : res){
-			
-		}
-		return res;
-	}
+	
+	//NOT DONE
+	FileMutable<E> suivants();
 
 	void ajouter(E element);
 	void retirer();
@@ -35,14 +29,18 @@ public interface FileMutable<E> extends File<E> {
 	}
 	@Override
 	default FileMutable<E> retrait() {
-		// TODO
-		return this;
+		// DONE
+		return this.suivants();
 	}
 	// Complexité O(|secondeFile|)
 	@Override
 	default FileMutable<E> ajout(File<E> secondeFile) {
-		// TODO (même code que FileImmutable.ajout)
-		return null;
+		// DONE (même code que FileImmutable.ajout)
+		FileMutable<E> r = this;
+		for(E e : secondeFile){
+			r = r.ajout(e);
+		}
+		return r;
 	}
 	
 	// Complexité en O(1).
