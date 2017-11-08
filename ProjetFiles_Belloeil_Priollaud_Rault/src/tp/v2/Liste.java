@@ -29,7 +29,7 @@ public interface Liste<E> extends Iterable<E> {
 	 * Services
 	 */
 	default Iterator<E> iterator() {
-		// TODO
+		// DONE
 		return new IterateurListe<E>(this); // Compléter puis utiliser IterateurListe.
 	}
 	default Liste<E> miroir(){

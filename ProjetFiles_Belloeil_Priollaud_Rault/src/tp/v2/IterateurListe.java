@@ -5,7 +5,6 @@ import java.util.Iterator;
 public class IterateurListe<E> implements Iterator<E> {
 
 	private Liste<E> liste;
-	private int index;
 	
 	public IterateurListe(Liste<E> liste){
 		this.liste=liste;
