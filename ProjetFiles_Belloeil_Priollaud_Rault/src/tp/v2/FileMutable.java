@@ -7,8 +7,12 @@ public interface FileMutable<E> extends File<E> {
 	 */
 	@Override
 	default FileMutable<E> suivants(){
-		// TODO
-		return null;
+		// DONE
+		FileMutable<E> res = this.creerCopie();
+		for(E e : res){
+			
+		}
+		return res;
 	}
 
 	void ajouter(E element);
@@ -26,6 +30,7 @@ public interface FileMutable<E> extends File<E> {
 	@Override
 	default FileMutable<E> ajout(E dernierDansFile) {
 		// TODO 
+		
 		return this;
 	}
 	@Override
