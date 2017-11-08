@@ -6,8 +6,10 @@ public interface FileMutable<E> extends File<E> {
 	 * Accesseurs
 	 */
 	
-	//NOT DONE
-	FileMutable<E> suivants();
+	//DONE
+	default FileMutable<E> suivants(){
+		return this.retrait();
+	}
 
 	void ajouter(E element);
 	void retirer();
@@ -23,14 +25,15 @@ public interface FileMutable<E> extends File<E> {
 	 */
 	@Override
 	default FileMutable<E> ajout(E dernierDansFile) {
-		// TODO 
-		
+		// DONE
+		this.ajouter(dernierDansFile);
 		return this;
 	}
 	@Override
 	default FileMutable<E> retrait() {
 		// DONE
-		return this.suivants();
+		this.retirer();
+		return this;
 	}
 	// Complexité O(|secondeFile|)
 	@Override
