@@ -8,7 +8,9 @@ public interface FileMutable<E> extends File<E> {
 	
 	//DONE
 	default FileMutable<E> suivants(){
-		return this.retrait();
+		FileMutable<E> copie = this.creerCopie();
+		copie.retrait();
+		return copie;
 	}
 
 	void ajouter(E element);
