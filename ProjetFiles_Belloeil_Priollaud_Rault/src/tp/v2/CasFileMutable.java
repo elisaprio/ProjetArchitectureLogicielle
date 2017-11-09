@@ -2,47 +2,46 @@ package tp.v2;
 
 import java.util.Iterator;
 
-public class CasFileMutable<E> implements ListeMutable<E>, FileMutable<E> {
+public class CasFileMutable<E> implements FileMutable<E> {
 
-	private ListeMutable<E> premier;
-	private ListeMutable<E> suivant;
+	private ListeMutable<E> fin;
+	private ListeMutable<E> liste;
 	
 	public CasFileMutable(ListeMutable<E> premier, ListeMutable<E> suivant) {
 		// DONE
-		this.premier=premier;
-		this.suivant=suivant;
+		this.fin=premier;
+		this.liste=suivant;
 	}
 
 	@Override
 	public E premier() {
 		// DONE
-		return this.premier.tete();
+		return this.fin.tete();
 	}
 
 	@Override
 	public FileMutable<E> suivants() {
 		// TODO Auto-generated method stub
-		
 		return null;
 	}
 
 	@Override
 	public int taille() {
 		// TODO Auto-generated method stub
-		return this.premier.taille()+this.suivant.taille();
+		return this.fin.taille()+this.liste.taille();
 	}
 
 	@Override
 	public FileMutable<E> ajout(E dernierDansFile) {
 		// OnGoing  --> ajout a la fin de la liste
-		this.suivant.miroir();
-		ListeMutable.cons(dernierDansFile, this.suivant);
-		this.suivant.miroir();
+		this.liste.miroir();
+		ListeMutable.cons(dernierDansFile, this.liste);
+		this.liste.miroir();
 		
 		// ou bien ajout en tete et changement de la tete
-		ListeMutable<E> deb = ListeMutable.cons(this.premier.tete(), this.suivant);
-		this.premier.changerTete(dernierDansFile); 
-		this.suivant=deb;
+		ListeMutable<E> deb = ListeMutable.cons(this.fin.tete(), this.liste);
+		this.fin.changerTete(dernierDansFile); 
+		this.liste=deb;
 		
 		//comment retourner une file ????
 		return null;
@@ -59,6 +58,14 @@ public class CasFileMutable<E> implements ListeMutable<E>, FileMutable<E> {
 	public FileMutable<E> ajout(File<E> secondeFile) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public boolean estVide() {
+		// TODO Auto-generated method stub
+		return FileMutable.super.estVide();
 	}
 
 	@Override
@@ -95,12 +102,6 @@ public class CasFileMutable<E> implements ListeMutable<E>, FileMutable<E> {
 	public void ajouter(File<E> secondeFile) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public boolean estVide() {
-		// TODO Auto-generated method stub
-		return FileMutable.super.estVide();
 	}
 
 }
