@@ -43,6 +43,16 @@ public interface Liste<E> extends Iterable<E> {
 		}
 		return res;
 	}
+	
+	default String listeToString() {
+		if(this.casVide())
+			return "vide";
+		else
+			return ""+this.tete()+", "+this.reste().listeToString();
+	}
+	
+	
+	
 	/*
 	 * Fabriques (statiques)
 	 */

@@ -34,25 +34,37 @@ public interface ListeMutable<E> extends Liste<E>{
 
 	public static <E> ListeMutable<E> cons(E t, ListeMutable<E> r){
 		return new ListeMutable<E>() {
-			// TODO Définir les méthodes utiles.	
+			//DONE
+			
+			private E tete=t;
+			private ListeMutable<E> reste = r;
+			
 			public boolean casCons(){
 				return true;
 			}
 			public E tete(){
-				return t;
+				return tete;
 			}
 			public ListeMutable<E> reste(){
-				return r;
+				return reste;
 			}
 			public int taille(){
-				return 1+r.taille();
+				return 1+reste.taille();
+			}
+			
+			public void changerTete (E tete) {
+				this.tete=tete;
+			}
+			
+			public void changerReste(ListeMutable<E> reste) {
+				this.reste=reste;
 			}
 		};
 	}
 	
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
-			// TODO Définir les méthodes utiles.	
+			// DONE	
 			public boolean casVide(){
 				return true;
 			}
