@@ -59,7 +59,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// TODO Auto-generated method stub
+		//DONE
 		return new CasFileMutable<E>(this.liste);
 	}
 
