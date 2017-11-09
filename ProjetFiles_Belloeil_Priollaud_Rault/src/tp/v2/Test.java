@@ -158,19 +158,24 @@ public class Test {
 		System.out.println("Expected Toto, vide : "+ vide.represente());
 		liste.ajouter("Toto");
 		System.out.println("Expected Elisa, Adele, Vincent, Toto, vide : "+liste.represente());
+		System.out.println();
 		
 		System.out.println("Test retirer()");
 		vide.retirer();
 		System.out.println("Expected vide : "+ vide.represente());
 		liste.retirer();
 		System.out.println("Expected Adele, Vincent, Toto, vide : "+ liste.represente());
-		
-		
-		System.out.println("Test creer()");
-		
-		System.out.println("Test creerCopie()");
+		System.out.println();
 		
 		System.out.println("Test ajouter File");
+		CasFileMutable<String> file1 = new CasFileMutable<String>(listeMutable);
+		CasFileMutable<String> file2 = new CasFileMutable<String>(listeMutable);
+		
+		file1.ajouter(file2);
+		System.out.println("Expected  Adele, Vincent, Toto, Adele, Vincent, Toto, vide :"+file1.represente());
+		System.out.println();
+		
+		
 	}
 	
 	public static void main(String[] args){
