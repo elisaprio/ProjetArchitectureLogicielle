@@ -63,7 +63,6 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// DONE
 		return new CasFileMutable<E>(this.liste);
 	}
 
