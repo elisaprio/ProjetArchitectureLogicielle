@@ -6,18 +6,41 @@ public interface Liste<E> extends Iterable<E> {
 	/*
 	 * Accesseurs
 	 */
+	
+	/*
+	 * retourne true si la liste est vide
+	 * retourne false par défaut
+	 * @return boolean
+	 */
 	default boolean casVide() {
 		return false;
 	}
+	/*
+	 * retourne l'élément en tête de liste
+	 * @return E
+	 */
 	default E tete() {
 		throw new UnsupportedOperationException();
 	}
+	/*
+	 * retourne la liste privée de son élément de tête
+	 * @return Liste<E>
+	 */
 	default Liste<E> reste() {
 		throw new UnsupportedOperationException();
 	}
+	/*
+	 * retourne true si la liste est constitué d'un élément de tête non nul et d'une queue
+	 * @return boolean
+	 */
 	default boolean casCons() {
 		return false;
 	}
+	/*
+	 * retourne la taille de la liste
+	 * retourne 0 par défaut
+	 * @return int
+	 */
 	default public int taille(){
 		return 0;
 	}
@@ -28,10 +51,18 @@ public interface Liste<E> extends Iterable<E> {
 	/*
 	 * Services
 	 */
+	/*
+	 * retourne un itérateur sur les listes
+	 * @return Itarator<E>
+	 */
 	default Iterator<E> iterator() {
 		// DONE
 		return new IterateurListe<E>(this); // ComplÃ©ter puis utiliser IterateurListe.
 	}
+	/*
+	 * retourne la liste en ordre inversé.
+	 * @return Liste<E>
+	 */
 	default Liste<E> miroir(){
 		// DONE
 		Liste<E> res = vide();
@@ -44,6 +75,10 @@ public interface Liste<E> extends Iterable<E> {
 		return res;
 	}
 	
+	/*
+	 * retourne la chaîne de caractère des éléments de la liste
+	 * @return String
+	 */
 	default String listeToString() {
 		if(this.casVide())
 			return "vide";
