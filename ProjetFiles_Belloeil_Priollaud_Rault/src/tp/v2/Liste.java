@@ -49,7 +49,7 @@ public interface Liste<E> extends Iterable<E> {
 	
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.	
+	//DONE
 			public boolean casVide(){
 				return true;
 			}

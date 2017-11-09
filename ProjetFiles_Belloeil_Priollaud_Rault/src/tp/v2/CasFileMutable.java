@@ -2,26 +2,27 @@ package tp.v2;
 
 import java.util.Iterator;
 
-public class CasFileMutable<E> implements FileMutable<E> {
+public class CasFileMutable<E> implements ListeMutable<E>, FileMutable<E> {
 
 	private ListeMutable<E> premier;
 	private ListeMutable<E> suivant;
 	
 	public CasFileMutable(ListeMutable<E> premier, ListeMutable<E> suivant) {
-		// TODO Auto-generated constructor stub
+		// DONE
 		this.premier=premier;
 		this.suivant=suivant;
 	}
 
 	@Override
 	public E premier() {
-		// TODO Auto-generated method stub
+		// DONE
 		return this.premier.tete();
 	}
 
 	@Override
 	public FileMutable<E> suivants() {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -33,15 +34,24 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> ajout(E dernierDansFile) {
-		// TODO Auto-generated method stub
-		ListeMutable<E> deb = ListeMutable.cons(dernierDansFile,this.premier);
+		// OnGoing  --> ajout a la fin de la liste
+		this.suivant.miroir();
+		ListeMutable.cons(dernierDansFile, this.suivant);
+		this.suivant.miroir();
 		
+		// ou bien ajout en tete et changement de la tete
+		ListeMutable<E> deb = ListeMutable.cons(this.premier.tete(), this.suivant);
+		this.premier.changerTete(dernierDansFile); 
+		this.suivant=deb;
+		
+		//comment retourner une file ????
 		return null;
 	}
 
 	@Override
 	public FileMutable<E> retrait() {
-		// TODO Auto-generated method stub
+		// TODO besoin de retirer la tete
+		
 		return null;
 	}
 
@@ -85,6 +95,12 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	public void ajouter(File<E> secondeFile) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean estVide() {
+		// TODO Auto-generated method stub
+		return FileMutable.super.estVide();
 	}
 
 }
