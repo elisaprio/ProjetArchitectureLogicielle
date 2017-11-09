@@ -60,6 +60,11 @@ public interface Liste<E> extends Iterable<E> {
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
 	//DONE
+			/*
+			 * Retourne true si la liste est vide
+			 * 
+			 * @return boolean
+			 */
 			public boolean casVide(){
 				return true;
 			}
