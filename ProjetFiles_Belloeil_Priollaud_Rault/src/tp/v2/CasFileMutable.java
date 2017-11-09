@@ -42,7 +42,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 					.cons(element, liste.reste().miroir())
 					.miroir());
 		}else {
-			this.liste=ListeMutable.cons(element, this.liste);	
+			this.liste=ListeMutable.cons(element, this.liste);
 		}
 	}
 	
@@ -50,8 +50,10 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	@Override
 	public void retirer() {
 		// DONE
-		this.liste.changerTete(liste.reste().tete());
-		this.liste.changerReste(liste.reste().reste());
+		if(!this.liste.casVide()) {
+			this.liste.changerTete(liste.reste().tete());
+			this.liste.changerReste(liste.reste().reste());
+		}
 	}
 
 
@@ -75,17 +77,10 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	
 	public String represente() {
 		String res = this.liste.listeToString();
-		res+=this.fin.listeToString();
-		return res;
-	}
-
-	/*	default String representation() {
-		// DONE
-		String res=this.premier().toString();
-		if(!this.suivants().estVide()){
-			res+=this.suivants().representation();
+		if(this.fin !=null) {
+			res+=this.fin.listeToString();
 		}
 		return res;
-	}*/
+	}
 	
 }

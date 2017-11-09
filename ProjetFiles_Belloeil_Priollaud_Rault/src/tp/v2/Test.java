@@ -155,11 +155,13 @@ public class Test {
 		
 		System.out.println("Test ajouter element");
 		vide.ajouter("Toto");
-		System.out.println("Expected Toto : "+ vide.represente());
+		System.out.println("Expected Toto, vide : "+ vide.represente());
 		liste.ajouter("Toto");
-		System.out.println("Expected Elisa, Adele, Vincent, Toto"+liste.represente());
+		System.out.println("Expected Elisa, Adele, Vincent, Toto, vide : "+liste.represente());
 		
 		System.out.println("Test retirer()");
+		vide.retirer();
+		System.out.println("Expected vide : "+ vide.represente());
 		
 		System.out.println("Test creer()");
 		
