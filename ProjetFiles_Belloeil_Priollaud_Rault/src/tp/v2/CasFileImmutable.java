@@ -2,18 +2,32 @@ package tp.v2;
 
 import java.util.Iterator;
 
-public class CasFileImmutable<E> implements FileImmutable<E>{
+public class CasFileImmutable<E> implements FileImmutable<E> {
+	
+	private Liste<E> debut;
+	private Liste<E> fin;
+	
+
+	public CasFileImmutable(Liste<E> debut, Liste<E> fin) {
+		super();
+		this.debut = debut;
+		this.fin = fin;
+	}
+	
+	public CasFileImmutable() {
+		this.debut = Liste.vide();
+	}
 
 	@Override
 	public E premier() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.debut.tete();
 	}
 
 	@Override
 	public int taille() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.debut.taille()+this.fin.taille();
 	}
 
 	@Override
