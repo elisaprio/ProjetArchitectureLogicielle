@@ -16,42 +16,28 @@ public class CasFileImmutable<E> implements FileImmutable<E> {
 	
 	public CasFileImmutable() {
 		this.debut = Liste.vide();
+		this.fin = Liste.vide();
 	}
 
 	@Override
 	public E premier() {
-		// TODO Auto-generated method stub
+		if (this.debut.casVide()){
+			this.debut=this.fin.miroir();
+		}
 		return this.debut.tete();
 	}
 
 	@Override
 	public int taille() {
-		// TODO Auto-generated method stub
+		// DONE
 		return this.debut.taille()+this.fin.taille();
 	}
 
-	@Override
-	public FileImmutable<E> ajout(E dernierDansFile) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public FileImmutable<E> retrait() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public FileImmutable<E> ajout(File<E> secondeFile) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		// DONE
+		return new IterateurListe<E>(debut);
 	}
 
 	@Override
