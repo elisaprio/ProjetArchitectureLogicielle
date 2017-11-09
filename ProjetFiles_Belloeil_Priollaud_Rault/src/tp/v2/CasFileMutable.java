@@ -7,7 +7,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	private ListeMutable<E> fin;
 	private ListeMutable<E> liste;
 	
-	private CasFileMutable() {
+	public CasFileMutable() {
 		this.liste=ListeMutable.vide();
 	}
 	
@@ -25,7 +25,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	@Override
 	public int taille() {
 		// DONE
-		return this.fin.taille()+this.liste.taille();
+		return liste.taille();
 	}
 
 	@Override
@@ -37,9 +37,13 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	@Override
 	public void ajouter(E element) {
 		// DONE
-		liste.changerReste(ListeMutable
-				.cons(element, liste.reste().miroir())
-				.miroir());
+		if(!this.liste.casVide()) {
+			liste.changerReste(ListeMutable
+					.cons(element, liste.reste().miroir())
+					.miroir());
+		}else {
+			this.liste=ListeMutable.cons(element, this.liste);	
+		}
 	}
 	
 
@@ -59,7 +63,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// TODO Auto-generated method stub
+		// DONE
 		return new CasFileMutable<E>(this.liste);
 	}
 
@@ -69,5 +73,20 @@ public class CasFileMutable<E> implements FileMutable<E> {
 			this.ajout(element);
 		}
 	}
+	
+	public String represente() {
+		String res = this.liste.listeToString();
+		res+=this.fin.listeToString();
+		return res;
+	}
 
+	/*	default String representation() {
+		// DONE
+		String res=this.premier().toString();
+		if(!this.suivants().estVide()){
+			res+=this.suivants().representation();
+		}
+		return res;
+	}*/
+	
 }

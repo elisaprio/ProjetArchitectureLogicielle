@@ -3,7 +3,7 @@ package tp.v2;
 
 public class Test {
 	private static void testListe() {
-		System.out.println("-- Tests Listes --");
+		System.out.println("-- Tests Listes Immutables --");
 		Liste<String> vide= Liste.vide();
 		Liste<String> liste= Liste.cons("Elisa",Liste.cons("Adele", Liste.cons("Vincent", vide)));
 		
@@ -127,9 +127,51 @@ public class Test {
 	}
 	
 	
+	public static void testCasFileMutable() {
+		System.out.println("-- Tests Implementaiton Cas file Mutable--");
+		
+		ListeMutable<String> videMutable = ListeMutable.vide();
+		ListeMutable<String> listeMutable= ListeMutable.cons("Elisa",ListeMutable.cons("Adele", ListeMutable.cons("Vincent", videMutable)));
+	
+		CasFileMutable<String> vide = new CasFileMutable();
+		CasFileMutable<String> liste = new CasFileMutable(listeMutable);
+
+		System.out.println("Test premier()");
+		try{
+			vide.premier();
+			System.out.println("La méthode ne fonctionne pas");
+		}
+		catch(Exception e) {
+			System.out.println("La methode fonctionne pour le CasFileMutable vide");
+		}
+		System.out.println("Expected Elisa: "+liste.premier());
+		System.out.println();
+		
+		System.out.println("Test taille()");
+		System.out.println("Expected 0 : " + vide.taille());
+		System.out.println("Expected 3 : " + liste.taille());
+		System.out.println();
+		
+		
+		System.out.println("Test ajouter element");
+		vide.ajouter("Toto");
+		System.out.println("Expected Toto : "+ vide.represente());
+		liste.ajouter("Toto");
+		System.out.println("Expected Elisa, Adele, Vincent, Toto"+liste.represente());
+		
+		System.out.println("Test retirer()");
+		
+		System.out.println("Test creer()");
+		
+		System.out.println("Test creerCopie()");
+		
+		System.out.println("Test ajouter File");
+	}
+	
 	public static void main(String[] args){
 		testListe();
 		testListeMutable();
+		testCasFileMutable();
 	}
 	
 }
