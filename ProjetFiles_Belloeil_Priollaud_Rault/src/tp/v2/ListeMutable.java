@@ -9,10 +9,16 @@ public interface ListeMutable<E> extends Liste<E>{
 		throw new UnsupportedOperationException();
 	}
 	
+	/*
+	 * change tout les elements de la liste sauf la tete par le param
+	 */
 	default void changerReste(ListeMutable<E> reste) {
 		throw new UnsupportedOperationException();
 	}
 	
+	/*
+	 * change la tete de la liste par le param de type E
+	 */
 	default void changerTete(E tete) {
 		throw new UnsupportedOperationException();
 	}
