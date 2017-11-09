@@ -162,6 +162,9 @@ public class Test {
 		System.out.println("Test retirer()");
 		vide.retirer();
 		System.out.println("Expected vide : "+ vide.represente());
+		liste.retirer();
+		System.out.println("Expected Adele, Vincent, Toto, vide : "+ liste.represente());
+		
 		
 		System.out.println("Test creer()");
 		

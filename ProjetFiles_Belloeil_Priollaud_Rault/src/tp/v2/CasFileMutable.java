@@ -50,6 +50,9 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	@Override
 	public void retirer() {
 		// DONE
+		if(this.liste.taille()==1) {
+			this.liste=ListeMutable.vide();
+		}
 		if(!this.liste.casVide()) {
 			this.liste.changerTete(liste.reste().tete());
 			this.liste.changerReste(liste.reste().reste());
