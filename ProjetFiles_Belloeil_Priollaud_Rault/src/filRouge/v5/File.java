@@ -15,8 +15,11 @@ public interface File<K, E> extends Iterable<E>, Mesurable {
 	}
 	
 	K ajout(E dernierDansFile); // Ajout en fin
-	K retrait(); // Retrait de premier élément
-	/*default K ajout(K secondeFile){// Ajout de la seconde file en fin de file
-		this.ajout()
+	K retrait(); // Retrait de premier ï¿½lï¿½ment
+	//K ajout(K secondeFile); //ajout de la seconde file en fin de file
+	
+	/*default K ajout2(K secondeFile){// Ajout de la seconde file en fin de file
+		this.ajout(secondeFile.premier());   //BESOIN DE RAJOUTER LE PREMIER ELEM DE secondeFile
+		return this.ajout2(secondeFile.suivants());
 	}*/
 }
