@@ -11,5 +11,12 @@ public interface FileMutable<K extends File<K,E>,E> extends File<K, E>, Identifi
 		return res.sujet();
 	}
 	
-	FileMutable<K,E> creerCopie(); // Fabrique réalisant une copie de la file
+	FileMutable<K,E> creerCopie(); // Fabrique realisant une copie de la file
+
+	K retrait();
+	K ajout(E dernierElement);
+
+	//Facultatif: 
+	//void ajouter(FileMutable<E> file);
+	
 }
