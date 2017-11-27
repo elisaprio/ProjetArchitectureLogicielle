@@ -17,4 +17,5 @@ Fichiers de l'étape 3 dans:
 
 
 Principes de nommage suivis:
+
 -Pour les interfaces et les classes qui ne sont pas définis explicitement, nous avons nommé "CasXXX" les implémentations des interfaces "EtatXXX" représentant les états associés.
