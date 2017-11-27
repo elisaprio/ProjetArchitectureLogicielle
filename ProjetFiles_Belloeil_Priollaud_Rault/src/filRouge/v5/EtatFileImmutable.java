@@ -1,5 +1,5 @@
 package filRouge.v5;
 
-public interface EtatFileImmutable {
+public interface EtatFileImmutable extends EtatFile{
 
 }

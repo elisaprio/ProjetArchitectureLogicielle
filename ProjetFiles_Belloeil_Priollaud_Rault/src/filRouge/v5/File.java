@@ -1,6 +1,6 @@
 package filRouge.v5;
 
-public interface File<K, E> extends Iterable<E>, Mesurable {
+public interface File<K extends Iterable<E>,E> extends Iterable<E>, Mesurable {
 
 	E premier();
 	K suivants();
@@ -16,10 +16,10 @@ public interface File<K, E> extends Iterable<E>, Mesurable {
 	
 	K ajout(E dernierDansFile); // Ajout en fin
 	K retrait(); // Retrait de premier �l�ment
-	//K ajout(K secondeFile); //ajout de la seconde file en fin de file
-	
-	/*default K ajout2(K secondeFile){// Ajout de la seconde file en fin de file
-		this.ajout(secondeFile.premier());   //BESOIN DE RAJOUTER LE PREMIER ELEM DE secondeFile
-		return this.ajout2(secondeFile.suivants());
-	}*/
+	default K ajout(K secondeFile){
+		for(E e:secondeFile){
+			this.ajout(e);
+		}
+		return this.sujet();
+	} //ajout de la seconde file en fin de file
 }

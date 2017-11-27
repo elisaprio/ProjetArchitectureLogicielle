@@ -1,14 +1,15 @@
 package filRouge.v5;
 
-public interface FileImmutable<K extends File<K,E>,E> extends File<K, E>, IdentifiableParIteration<K, E>, RepresentableParIteration<E> {
+public interface FileImmutable<E> extends File<FileImmutable<E>, E>, IdentifiableParIteration<FileImmutable<E>, E>, RepresentableParIteration<E> {
 
-	FileImmutable<K,E> creer(E dernier); // Fabrique d'une file formée de la file cible et 
+	FileImmutable<E> creer(E dernier); // Fabrique d'une file formée de la file cible et 
     										//   d'un nouveau dernier élément
-	default K retrait(){
-		return this.sujet().retrait();
+	default FileImmutable<E> retrait(){
+		//return this.sujet().retrait();
+		return this.suivants();
 	}
 	
-	default K ajout(E elem){
-		return this.sujet().ajout(elem);
+	default FileImmutable<E> ajout(E elem){
+		return creer(elem);
 	}
 }
